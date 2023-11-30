@@ -59,8 +59,7 @@ public class Impressao {
      * variavel do tipo List pois o metodo tambem é uma List e mostrar todo o
      * resultado atraves de um forEach @author Murilo
      */
-    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, String dataUser,
-                         String horaUser, String minutoUser) {
+    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, String dataUser, String horaUser, String minutoUser) {
 
         Base base = new Base();
 

@@ -1,4 +1,6 @@
-/**Criação da classe "Base" que implementa os metodos da interface iBase. @author Caio e @author Murilo */
+/**
+ * Criação da classe "Base" que implementa os metodos da interface iBase. @author Caio e @author Murilo
+ */
 
 package Base_Dados;
 
@@ -38,30 +40,21 @@ public class Base implements IBase {
                 laboratorios.setDescricao("LAB" + i);
 
                 switch (laboratorios.getDescricao()) {
-                    case "LAB2":
-                    case "LAB3":
-                    case "LAB4":
-                    case "LAB5":
-                    case "LAB6":
-                    case "LAB7":
+                    case "LAB2", "LAB3", "LAB4", "LAB5", "LAB6", "LAB7" -> {
                         laboratorios.setCapacidade(20);
                         laboratorios.setId(i);
                         laboratorios.setStatus(true);
-                        break;
-                    case "LAB8":
-                    case "LAB9":
-                    case "LAB11":
-                    case "LAB12":
+                    }
+                    case "LAB8", "LAB9", "LAB11", "LAB12" -> {
                         laboratorios.setCapacidade(15);
                         laboratorios.setId(i);
                         laboratorios.setStatus(true);
-                        break;
-                    case "LAB1":
-                    case "LAB10":
+                    }
+                    case "LAB1", "LAB10" -> {
                         laboratorios.setCapacidade(30);
                         laboratorios.setId(i);
                         laboratorios.setStatus(true);
-                        break;
+                    }
                 }
                 listaLaboratorio.add(laboratorios);
             }
@@ -104,36 +97,24 @@ public class Base implements IBase {
                 professor.setNome("Professor0" + i);
 
                 switch (professor.getNome()) {
-                    case "Professor01":
-                    case "Professor02":
-                    case "Professor03":
-                    case "Professor04":
-                    case "Professor05":
-                    case "Professor06":
-                    case "Professor07":
-                    case "Professor08":
-                    case "Professor09":
-                    case "Professor010":
+                    case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06", "Professor07", "Professor08", "Professor09", "Professor010" -> {
                         professor.setId(i);
                         professor.setDepartamento(getDepartamentos().get(0));
                         professor.setStatus(true);
                         professor.setConjuntoDisciplina(disciplinasDoProfessor(1, 3));
-                        break;
-                    case "Professor011":
-                    case "Professor012":
-                    case "Professor013":
-                    case "Professor014":
+                    }
+                    case "Professor011", "Professor012", "Professor013", "Professor014" -> {
                         professor.setId(i);
                         professor.setDepartamento(getDepartamentos().get(1));
                         professor.setStatus(true);
                         professor.setConjuntoDisciplina(disciplinasDoProfessor(4, 4));
-                        break;
-                    case "Professor015":
+                    }
+                    case "Professor015" -> {
                         professor.setId(i);
                         professor.setDepartamento(getDepartamentos().get(2));
                         professor.setStatus(true);
                         professor.setConjuntoDisciplina(disciplinasDoProfessor(8, 3));
-                        break;
+                    }
                 }
 
                 listaProfessores.add(professor);
@@ -164,77 +145,67 @@ public class Base implements IBase {
             for (int i = 1; i <= 10; i++) {
                 Disciplinas disciplinas = new Disciplinas();
                 switch (i) {
-                    case 1:
+                    case 1 -> {
                         disciplinas.setDescricao("LOGICA DE PROGRAMAÇÃO");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES005");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 2:
+                    }
+                    case 2 -> {
                         disciplinas.setDescricao("ESTRUTURA DE DADOS");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES006");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 3:
+                    }
+                    case 3 -> {
                         disciplinas.setDescricao("PROGRAMAÇÃO ORIENTADA A OBJETOS");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES008");
                         disciplinas.setStatus(false);
-                        break;
-
-                    case 4:
+                    }
+                    case 4 -> {
                         disciplinas.setDescricao("BANCO DE DADOS");
                         disciplinas.setSigla("BES011");
                         disciplinas.setId(i);
                         disciplinas.setStatus(true);
                         ;
-                        break;
-
-                    case 5:
+                    }
+                    case 5 -> {
                         disciplinas.setDescricao("ENGENHARIA DE REQUISITOS");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES012");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 6:
+                    }
+                    case 6 -> {
                         disciplinas.setDescricao("PROGRAMAÇAO PARA DISPOSITIVOS MOVEIS");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES020");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 7:
+                    }
+                    case 7 -> {
                         disciplinas.setDescricao("SISTEMAS DISTRIBUIDOS");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES026");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 8:
+                    }
+                    case 8 -> {
                         disciplinas.setDescricao("INTELIGENCIA ARTIFICIAL");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES038");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 9:
+                    }
+                    case 9 -> {
                         disciplinas.setDescricao("PROGRAMAÇÃO WEB");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES049");
                         disciplinas.setStatus(true);
-                        break;
-
-                    case 10:
+                    }
+                    case 10 -> {
                         disciplinas.setDescricao("PROGRAMAÇÃO FRONT-END");
                         disciplinas.setId(i);
                         disciplinas.setSigla("BES048");
                         disciplinas.setStatus(true);
-                        break;
-
+                    }
                 }
                 listaDisciplinas.add(disciplinas);
             }
@@ -267,7 +238,7 @@ public class Base implements IBase {
             return null;
         }
 
-        return conjuntoAlunos.subList(inicio - inicio , qtden);
+        return conjuntoAlunos.subList(inicio - inicio, qtden);
     }
 
 
@@ -348,19 +319,12 @@ public class Base implements IBase {
      * Murilo
      */
     private Departamentos criarDepartamentos(int id) {
-        switch (id) {
-            case 0:
-                return new Departamentos(1, "Engenharia de Software", "ES");
-
-            case 1:
-                return new Departamentos(2, "Computação de Alto Nivel", "CA");
-
-            case 2:
-                return new Departamentos(3, "Computação de Alto Nivel", "CA");
-
-            default:
-                return null;
-        }
+        return switch (id) {
+            case 0 -> new Departamentos(1, "Engenharia de Software", "ES");
+            case 1 -> new Departamentos(2, "Computação de Alto Nivel", "CA");
+            case 2 -> new Departamentos(3, "Computação de Alto Nivel", "CA");
+            default -> null;
+        };
 
     }
 }

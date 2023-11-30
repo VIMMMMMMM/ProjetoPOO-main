@@ -20,7 +20,7 @@ public class Reservas implements IReservas{
 
     }
     public void validaReservaLaboratorio(Integer capacidadeLaboratorio, Boolean statusLaboratorio, TreeSet<Alunos> grupoAlunos) throws DominioExcessoes {
-        if (statusLaboratorio != true) {
+        if (!statusLaboratorio) {
             throw new DominioExcessoes("Laboratorio Indisponivel");
 
         }
@@ -29,19 +29,19 @@ public class Reservas implements IReservas{
         }
     }
     public void validaDisciplina(Boolean statusDisciplina) throws DominioExcessoes {
-        if (statusDisciplina != true) {
+        if (!statusDisciplina) {
             throw new DominioExcessoes("Disciplina Indisponivel");
         }
 
     }
     public void validaProfessor(Boolean statusProfessor) {
-        if (statusProfessor  != true ) {
+        if (!statusProfessor) {
             throw new DominioExcessoes("Professor Indisponivel");
         }
 
     }
     public void validaAlunos(Boolean statusAlunos, TreeSet<Alunos> grupoAlunos) {
-        if (statusAlunos != true) {
+        if (!statusAlunos) {
             throw new DominioExcessoes("Alunos Indisponiveis");
         }
     }
