@@ -4,9 +4,11 @@ package Execução;
 
 import Base_Dados.Base;
 
+import java.text.ParseException;
+
 public class Execucao {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		Impressao impressao = new Impressao();
 		impressao.Usuario();
 
