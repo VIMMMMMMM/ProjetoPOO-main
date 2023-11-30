@@ -256,9 +256,8 @@ public class Base implements IBase {
             if (inicio >= 1 && qtden > 0) {
                 for (int i = inicio; i < inicio + qtden; i++) {
                     Alunos aluno = new Alunos();
-
                     aluno.setId(i);
-                    aluno.setNome("ALUNO" + i);
+                    aluno.setNome("Aluno" + i);
                     aluno.setMatricula(20232000 + i);
                     aluno.setStatus(true);
 

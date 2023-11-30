@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b0bbdd9-88da-4524-92fa-2a3ad48023ee" name="Changes" comment="update @caiosmp @whsmumu">
+    <list default="true" id="3b0bbdd9-88da-4524-92fa-2a3ad48023ee" name="Changes" comment="update @Eduardo @kaique @Gustavo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Base_Dados/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Base_Dados/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Base_Dados/IBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Base_Dados/IBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Execução/Impressao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Execução/Impressao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requerimentos/Reservas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requerimentos/SolicitarLaboratorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requerimentos/SolicitarLaboratorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Requerimentos/ValidarSolicitacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requerimentos/ValidarSolicitacao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +90,7 @@
       <updated>1701198197665</updated>
       <workItem from="1701198198743" duration="8767000" />
       <workItem from="1701222991578" duration="535000" />
-      <workItem from="1701369244711" duration="1103000" />
+      <workItem from="1701369244711" duration="2641000" />
     </task>
     <task id="LOCAL-00001" summary="abc">
       <option name="closed" value="true" />
@@ -106,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701369513673</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update @Eduardo @kaique @Gustavo">
+      <option name="closed" value="true" />
+      <created>1701370508645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701370508645</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="abc" />
     <MESSAGE value="update @caiosmp @whsmumu" />
-    <option name="LAST_COMMIT_MESSAGE" value="update @caiosmp @whsmumu" />
+    <MESSAGE value="update @Eduardo @kaique @Gustavo" />
+    <option name="LAST_COMMIT_MESSAGE" value="update @Eduardo @kaique @Gustavo" />
   </component>
 </project>
