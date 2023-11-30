@@ -79,10 +79,6 @@ public class Impressao {
         ValidarSolicitacao validarSolicitacao = new ValidarSolicitacao();
 
 
-
-
-
-
         for (Laboratorios ClasseLab : listaLaboratorios) {
             if (ClasseLab.getDescricao().equals(laboratorioUser)) {
                 System.out.println(ClasseLab);
@@ -109,8 +105,6 @@ public class Impressao {
 
         }
         validarSolicitacao.validaDiaReserva(dataUser,date);
-
-
 
     }
 

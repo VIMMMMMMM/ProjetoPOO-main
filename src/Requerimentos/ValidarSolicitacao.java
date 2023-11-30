@@ -9,10 +9,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
 
-public class ValidarSolicitacao implements IReservas {
+public class ValidarSolicitacao  {
     public void validaReserva() {
 
     }
+    /*/
+    metodo que implementa a validacao do dia da reserva @author Eduardo @author Kaique @author Gustavo
+     */
     public void validaDiaReserva(Date diaReserva, Date diaReservado)  {
         Date diaUser = new Date();
         if (diaReserva.before(diaUser))

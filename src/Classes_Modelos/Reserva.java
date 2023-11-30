@@ -4,41 +4,23 @@ package Classes_Modelos;
 
 import java.util.Date;
 
-public class Reserva {
+public abstract class Reserva implements IReservas{
 	private Integer id;
-    private Solicitacao solicitacao;
-    private SituacaoReserva situacao;
-    private Date diaDaReserva;
 
-    public Date getDiaDaReserva() {
-        return diaDaReserva;
-    }
-    public void setDiaDaReserva(Date diaDaReserva) {
-        this.diaDaReserva = diaDaReserva;
-    }
-    
-	public Integer getId() {
-		return id;
+	public Date diaDaReserva() {
+
+		return null;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+
+
+	public Solicitacao soliciatacao() {
+		return null;
 	}
-	public Solicitacao getSolicitacao() {
-		return solicitacao;
+
+
+	public SituacaoReserva situacaoReserva() {
+		return null;
 	}
-	public void setSolicitacao(Solicitacao solicitacao) {
-		this.solicitacao = solicitacao;
-	}
-	public SituacaoReserva getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(SituacaoReserva situacao) {
-		this.situacao = situacao;
-	}
-    @Override
-    public String toString() {
-        return "Reserva [id=" + id + ", solicitacao=" + solicitacao + ", situacao=" + situacao + ", diaDaReserva="
-                + diaDaReserva + "]";
-    } 
+
 
 }
