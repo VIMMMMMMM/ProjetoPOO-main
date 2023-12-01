@@ -2,14 +2,13 @@ package Requerimentos;
 /*
 classe que valida solicitacao do Laboratorio @author Eduardo @author Kaique
  */
+
 import Classes_Modelos.Alunos;
-import Classes_Modelos.IReservas;
 import Classes_Modelos.Laboratorios;
 import Classes_Modelos.SituacaoReserva;
 
 import java.util.Date;
 import java.util.List;
-import java.util.TreeSet;
 
 public class ValidarSolicitacao  {
     public void validaReserva() {
@@ -39,17 +38,23 @@ public class ValidarSolicitacao  {
     public void validaDisciplina(Boolean statusDisciplina)  {
         if (!statusDisciplina)
             System.out.println(SituacaoReserva.REPROVADO);
-
+            else {
+            System.out.println(SituacaoReserva.APROVADO);
+        }
     }
     public void validaProfessor(Boolean statusProfessor) {
         if (!statusProfessor)
             System.out.println(SituacaoReserva.REPROVADO);
-
+        else {
+            System.out.println(SituacaoReserva.APROVADO);
+        }
 
     }
     public void validaAlunos(Boolean statusAlunos, List<Alunos> grupoAlunos) {
         if (!statusAlunos)
             System.out.println(SituacaoReserva.REPROVADO);
-
+        else {
+            System.out.println(SituacaoReserva.APROVADO);
+        }
     }
 }
