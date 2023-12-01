@@ -1,5 +1,7 @@
 package Requerimentos;
-
+/*
+classe que valida solicitacao do Laboratorio @author Eduardo @author Kaique
+ */
 import Classes_Modelos.Alunos;
 import Classes_Modelos.IReservas;
 import Classes_Modelos.Laboratorios;

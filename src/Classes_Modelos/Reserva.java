@@ -1,4 +1,4 @@
-/**Classe Reserva que possui seus atributos, getters e setters, juntamento com o toString @author Caio*/
+/**Classe Reserva que implementa a interface IReservas @author Eduardo @author Kaique @author Gustavo */
 
 package Classes_Modelos;
 
