@@ -10,6 +10,7 @@ public class Solicitacao {
     private Integer id;
     private Laboratorios laboratorio;
     private Professores professor;
+	private Departamentos departamentos;
     private Disciplinas disciplina;
     private Set <Alunos> alunos;
     private Date data;
@@ -57,12 +58,27 @@ public class Solicitacao {
 	public void setTempoDeUtilizacao(Integer tempoDeUtilizacao) {
 		this.tempoDeUtilizacao = tempoDeUtilizacao;
 	}
-	
+
+
+	public Departamentos getDepartamentos() {
+		return departamentos;
+	}
+
+	public void setDepartamentos(Departamentos departamentos) {
+		this.departamentos = departamentos;
+	}
+
 	@Override
 	public String toString() {
-		return "Solicitacao [id=" + id + ", laboratorio=" + laboratorio + ", professor=" + professor + ", disciplina="
-				+ disciplina + ", alunos=" + alunos + ", data=" + data + ", tempoDeUtilizacao=" + tempoDeUtilizacao
-				+ "]";
-	} 
-
+		return "Solicitacao{" +
+				"id=" + id +
+				", laboratorio=" + laboratorio +
+				", professor=" + professor +
+				", departamentos=" + departamentos +
+				", disciplina=" + disciplina +
+				", alunos=" + alunos +
+				", data=" + data +
+				", tempoDeUtilizacao=" + tempoDeUtilizacao +
+				'}';
+	}
 }

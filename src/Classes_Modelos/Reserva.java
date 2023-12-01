@@ -20,5 +20,5 @@ public abstract class Reserva implements IReservas{
 
 		return null;
 	}
-
+	public abstract void impressaoReserva();
 }
