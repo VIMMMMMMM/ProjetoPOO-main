@@ -9,9 +9,8 @@ import java.util.TreeSet;
 
 public interface IReservas {
 
-   public Date diaDaReserva();
-   public Solicitacao soliciatacao();
-   public SituacaoReserva situacaoReserva();
+   public List<Reserva> diaDaReserva();
+
 
 
 }

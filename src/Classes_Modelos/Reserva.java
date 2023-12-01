@@ -3,24 +3,22 @@
 package Classes_Modelos;
 
 import java.util.Date;
+import java.util.List;
 
 public abstract class Reserva implements IReservas{
 	private Integer id;
+	public Integer getId() {
+		return id;
+	}
 
-	public Date diaDaReserva() {
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public List<Reserva> diaDaReserva() {
+
 
 		return null;
 	}
-
-
-	public Solicitacao soliciatacao() {
-		return null;
-	}
-
-
-	public SituacaoReserva situacaoReserva() {
-		return null;
-	}
-
 
 }
