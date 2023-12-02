@@ -2,6 +2,9 @@
 
 package Classes_Modelos;
 
+import Requerimentos.SolicitarLaboratorio;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +18,8 @@ public abstract class Reserva implements IReservas{
 		this.id = id;
 	}
 
-	public List<Reserva> diaDaReserva() {
-
+	public List<Reserva> reservasEfetivadas() {
+		List<Solicitacao> solicitacoes= new ArrayList<>();
 
 		return null;
 	}

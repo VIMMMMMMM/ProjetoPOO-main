@@ -9,7 +9,7 @@ import java.text.ParseException;
 
 public class Execucao {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args)  {
 		SolicitarLaboratorio solicitarLaboratorio = new SolicitarLaboratorio();
 		solicitarLaboratorio.Usuario();
 

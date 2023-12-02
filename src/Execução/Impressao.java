@@ -36,11 +36,6 @@ public class Impressao extends Reserva {
                 System.out.println(ClassProf);
             }
         }
-        for (Disciplinas ClassDis : listaDisciplinas) {
-            if (ClassDis.getDescricao().equals(disciplinaUser)) {
-                System.out.println(ClassDis);
-            }
-        }
         for (Alunos alunos : listaAlunos) {
             System.out.println(alunos);
         }

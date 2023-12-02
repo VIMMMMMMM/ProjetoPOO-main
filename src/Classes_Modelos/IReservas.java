@@ -9,7 +9,7 @@ import java.util.TreeSet;
 
 public interface IReservas {
 
-   public List<Reserva> diaDaReserva();
+   public List<Reserva>reservasEfetivadas();
 
 
 
