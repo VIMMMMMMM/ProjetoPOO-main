@@ -42,8 +42,8 @@ public class ValidarSolicitacao  {
             System.out.println(SituacaoReserva.APROVADO);
         }
     }
-    public void validaProfessor(Boolean statusProfessor, String disciplinaUser) {
-        ListIterator<Professores> listaProfessores = base.getProfessores().listIterator();
+    public void validaProfessor(Boolean statusProfessor, String disciplinaUser, Set<Disciplinas> disciplinas) {
+        List<Professores> listaProfessores = base.getProfessores();
         if (!statusProfessor)
             System.out.println(SituacaoReserva.REPROVADO);
         else {
