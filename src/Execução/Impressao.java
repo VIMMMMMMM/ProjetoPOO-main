@@ -33,13 +33,13 @@ public class Impressao extends Reserva {
             Map<String, Integer> mapaDisciplina= new HashMap<>();
             Map<String,Integer> mapaLaboratorio=new HashMap<>();
             for (int i = 0; i < professores.size(); i++) {
-                mapaProfessores.put(professores.get(i).getNome(),0);
+                mapaProfessores.put(professores.get(i).getNome(),i);
             }
             for (int i = 0; i < disciplinas.size(); i++) {
-                mapaDisciplina.put(disciplinas.get(i).getSigla(),1);
+                mapaDisciplina.put(disciplinas.get(i).getSigla(),i);
             }
             for (int i = 0; i < laboratorios.size(); i++) {
-                mapaLaboratorio.put(laboratorios.get(i).getDescricao(),2);
+                mapaLaboratorio.put(laboratorios.get(i).getDescricao(),i);
             }
 
             if (mapaProfessores.containsKey(professorUser)) {
