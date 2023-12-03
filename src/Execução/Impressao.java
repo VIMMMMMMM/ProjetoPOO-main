@@ -2,17 +2,10 @@
 
 package Execução;
 
-import static java.lang.System.exit;
+import java.util.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 import Base_Dados.Base;
 import Classes_Modelos.*;
-import Requerimentos.ValidarSolicitacao;
 
 public class Impressao extends Reserva {
     /**
@@ -20,29 +13,67 @@ public class Impressao extends Reserva {
      * variavel do tipo List pois o metodo tambem é uma List e mostrar todo o
      * resultado atraves de um forEach @author Murilo
      */
-    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Date horaUser, String minutoUser)   {
-        Base base = new Base();
-        List<Laboratorios> listaLaboratorios = base.getLaboratorios();
-        List<Professores> listaProfessores = base.getProfessores();
-        List<Disciplinas> listaDisciplinas = base.getDisciplinas();
-        List<Alunos> listaAlunos = base.getAlunos(1, 10);
-        for (Laboratorios ClasseLab : listaLaboratorios) {
-            if (ClasseLab.getDescricao().equals(laboratorioUser)) {
-                System.out.println(ClasseLab);
-            }
+    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Date horaUser, Integer minutoUser) {
+        try {
+            Map<Integer, Solicitacao> solicitacaoMap = new HashMap<>(); // Alteração para Map
+            Base base = new Base();
+            List<Professores> professores = base.getProfessores();
+            List<Disciplinas> disciplinas = base.getDisciplinas();
+            List<Laboratorios> laboratorios = base.getLaboratorios();
+            List<Alunos> alunos =  base.getAlunos(1, 10);
+           List<Departamentos>  departamentos =  base.getDepartamentos();
+
+            Random random = new Random(1000);
+            Solicitacao solicitacao = new Solicitacao();
+            int id = random.nextInt(10000);
+            solicitacao.setId(id);
+            solicitacao.setData(dataUser);
+            solicitacao.setTempoDeUtilizacao(minutoUser);
+            // Chamando métodos da própria classe Impressao
+            configurarProfessor(professores, solicitacao);
+            configurarDisciplina(disciplinas, solicitacao);
+            configurarLaboratorio(laboratorios, solicitacao);
+            configurarAlunos(alunos, solicitacao);
+            configurarDepartamentos(departamentos, solicitacao);
+
+
+
+            solicitacaoMap.put(id, solicitacao); // Adicionando ao Map
+
+            System.out.println(solicitacaoMap);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        for (Professores ClassProf : listaProfessores) {
-            if (ClassProf.getNome().equals(professorUser)) {
-                System.out.println(ClassProf);
-            }
-        }
-        for (Alunos alunos : listaAlunos) {
-            System.out.println(alunos);
-        }
-        Random solicitacao = new Random(10000);
-        System.out.println();
+    }
+
+    // Métodos adicionais para configurar os atributos
+    private void configurarProfessor(List<Professores> professores, Solicitacao solicitacao) {
+        // Lógica para configurar o professor
+        solicitacao.setProfessor(professores.get(0));
+    }
+
+    private void configurarDisciplina(List<Disciplinas> disciplinas, Solicitacao solicitacao) {
+        // Lógica para configurar a disciplina
+        solicitacao.setDisciplina(disciplinas.get(0));
+    }
+
+    private void configurarLaboratorio(List<Laboratorios> laboratorios, Solicitacao solicitacao) {
+        // Lógica para configurar o laboratório
+        solicitacao.setLaboratorio(laboratorios.get(0));
+    }
+
+    private void configurarAlunos(List<Alunos> alunos, Solicitacao solicitacao) {
+        // Lógica para configurar os alunos
+        solicitacao.setAlunos(alunos);
+    }
+
+    private void configurarDepartamentos(List<Departamentos> departamentos, Solicitacao solicitacao) {
+        // Lógica para configurar os departamentos
+        solicitacao.setDepartamentos(departamentos.get(0));
+
     }
     public void impressaoReserva() {
 
     }
 }
+

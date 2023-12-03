@@ -42,17 +42,12 @@ public class ValidarSolicitacao  {
             System.out.println(SituacaoReserva.APROVADO);
         }
     }
-    public void validaProfessor(Boolean statusProfessor, String disciplinaUser, Set<Disciplinas> disciplinas) {
+    public void validaProfessor(Boolean statusProfessor, String disciplinaUser, String professorUser) {
         List<Professores> listaProfessores = base.getProfessores();
         if (!statusProfessor)
             System.out.println(SituacaoReserva.REPROVADO);
         else {
             System.out.println(SituacaoReserva.APROVADO);
-        }
-        while (listaProfessores.hasNext()){
-     if (!disciplinaUser.equals(listaProfessores)) {
-         System.out.println(SituacaoReserva.REPROVADO);
-     }
         }
 
 

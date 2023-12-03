@@ -3,6 +3,7 @@
 package Classes_Modelos;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -12,7 +13,7 @@ public class Solicitacao {
     private Professores professor;
 	private Departamentos departamentos;
     private Disciplinas disciplina;
-    private Set <Alunos> alunos;
+    private List <Alunos> alunos;
     private Date data;
     private Integer tempoDeUtilizacao;
 
@@ -40,10 +41,10 @@ public class Solicitacao {
 	public void setDisciplina(Disciplinas disciplina) {
 		this.disciplina = disciplina;
 	}
-	public Set<Alunos> getAlunos() {
+	public List<Alunos> getAlunos() {
 		return alunos;
 	}
-	public void setAlunos(Set<Alunos> alunos) {
+	public void setAlunos(List<Alunos> alunos) {
 		this.alunos = alunos;
 	}
 	public Date getData() {
@@ -72,13 +73,13 @@ public class Solicitacao {
 	public String toString() {
 		return "Solicitacao{" +
 				"id=" + id +
-				", laboratorio=" + laboratorio +
-				", professor=" + professor +
-				", departamentos=" + departamentos +
-				", disciplina=" + disciplina +
-				", alunos=" + alunos +
-				", data=" + data +
-				", tempoDeUtilizacao=" + tempoDeUtilizacao +
+				",\n laboratorio=" + laboratorio +
+				",\n professor=" + professor +
+				",\n departamentos=" + departamentos +
+				",\n disciplina=" + disciplina +
+				",\n alunos=" + alunos +
+				",\n data=" + data +
+				",\n tempoDeUtilizacao=" + tempoDeUtilizacao +
 				'}';
 	}
 }
