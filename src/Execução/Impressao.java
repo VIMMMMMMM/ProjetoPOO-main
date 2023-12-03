@@ -15,12 +15,12 @@ public class Impressao extends Reserva {
      */
     public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Date horaUser, Integer minutoUser) {
         try {
-            Map<Integer, Solicitacao> solicitacaoMap = new HashMap<>(); // Alteração para Map
+          List<Solicitacao >solicitacaoList=new ArrayList<>();
             Base base = new Base();
             List<Professores> professores = base.getProfessores();
             List<Disciplinas> disciplinas = base.getDisciplinas();
             List<Laboratorios> laboratorios = base.getLaboratorios();
-            List<Alunos> alunos =  base.getAlunos(1, 10);
+            List<Alunos> alunos =  base.getAlunos(1, 65);
            List<Departamentos>  departamentos =  base.getDepartamentos();
 
             Random random = new Random(1000);
@@ -29,49 +29,60 @@ public class Impressao extends Reserva {
             solicitacao.setId(id);
             solicitacao.setData(dataUser);
             solicitacao.setTempoDeUtilizacao(minutoUser);
-            //Chamando métodos da própria classe Impressao
-            configurarProfessor(professores, solicitacao);
-            configurarDisciplina(disciplinas, solicitacao);
-            configurarLaboratorio(laboratorios, solicitacao);
-            configurarAlunos(alunos, solicitacao);
-            configurarDepartamentos(departamentos, solicitacao);
+            Map<Professores, Integer> mapaProfessores = new HashMap<>();
+            Map<String, Integer> mapaDisciplina= new HashMap<>();
+            Map<String,Integer> mapaLaboratorio=new HashMap<>();
+
+            for (int i = 0; i < professores.size(); i++) {
+                if (professorUser == professores.get(i).getNome()){
+                    solicitacao.setProfessor(professores.get(i));
+                }
+            }
 
 
+            mapaDisciplina.put("BES005",1);
+            if (mapaDisciplina.containsKey(disciplinaUser)) {
+                solicitacao.setDisciplina(disciplinas.get(mapaDisciplina.get(disciplinaUser)));
+            }
+            mapaLaboratorio.put("LAB8",2);
+            if (mapaLaboratorio.containsKey(laboratorioUser)) {
+                solicitacao.setLaboratorio(laboratorios.get(mapaLaboratorio.get(laboratorioUser)));
+            }
 
-            solicitacaoMap.put(id, solicitacao); // Adicionando ao Map
+            switch (laboratorioUser){
+                case "LAB2", "LAB3", "LAB4", "LAB5", "LAB6", "LAB7":
+                    solicitacao.setAlunos(alunos.subList(0,20));
+                    break;
+                case "LAB8", "LAB9", "LAB11", "LAB12":
+                    solicitacao.setAlunos(alunos.subList(20,35));
+                    break;
+                case "LAB1", "LAB10":
+                    solicitacao.setAlunos(alunos.subList(35,65));
+                    break;
+                default:
+                    break;
+            }
+            switch (professorUser){
+                case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06", "Professor07", "Professor08", "Professor09", "Professor010":
+                    solicitacao.setDepartamentos(departamentos.get(0));
+                    break;
+                case "Professor011", "Professor012", "Professor013", "Professor014":
+                    solicitacao.setDepartamentos(departamentos.get(1));
+                    break;
+                case "Professor015":
+                    solicitacao.setDepartamentos(departamentos.get(2));
+                    break;
+                default:
+                    break;
+            }
+            solicitacaoList.add(solicitacao);
 
-            System.out.println(solicitacaoMap);
+            System.out.println(solicitacaoList);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+           e.printStackTrace();
         }
     }
 
-    // Métodos adicionais para configurar os atributos
-    private void configurarProfessor(List<Professores> professores, Solicitacao solicitacao) {
-        // Lógica para configurar o professor
-        solicitacao.setProfessor(professores.get(0));
-    }
-
-    private void configurarDisciplina(List<Disciplinas> disciplinas, Solicitacao solicitacao) {
-        // Lógica para configurar a disciplina
-        solicitacao.setDisciplina(disciplinas.get(0));
-    }
-
-    private void configurarLaboratorio(List<Laboratorios> laboratorios, Solicitacao solicitacao) {
-        // Lógica para configurar o laboratório
-        solicitacao.setLaboratorio(laboratorios.get(0));
-    }
-
-    private void configurarAlunos(List<Alunos> alunos, Solicitacao solicitacao) {
-        // Lógica para configurar os alunos
-        solicitacao.setAlunos(alunos);
-    }
-
-    private void configurarDepartamentos(List<Departamentos> departamentos, Solicitacao solicitacao) {
-        // Lógica para configurar os departamentos
-        solicitacao.setDepartamentos(departamentos.get(0));
-
-    }
     public void impressaoReserva() {
         Solicitacao solicitacao=new Solicitacao();
         List<String> reservas=new ArrayList<>();

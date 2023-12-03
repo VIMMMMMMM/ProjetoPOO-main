@@ -16,27 +16,27 @@ public class ValidarSolicitacao {
         if (diaReserva.before(diaUser))
             System.out.println(SituacaoReserva.REPROVADO);
         else {
-            System.out.println(SituacaoReserva.APROVADO);
+            if (!statusLaboratorio.contains(true)) {
+                System.out.println(SituacaoReserva.REPROVADO);
+            } else {
+                if (!statusDisciplina)
+                    System.out.println(SituacaoReserva.REPROVADO);
+                else {
+                    if (!statusProfessor)
+                        System.out.println(SituacaoReserva.REPROVADO);
+                    else {
+                        if (!statusAlunos) {
+                            System.out.println(SituacaoReserva.REPROVADO);
+                        } else {
+                            System.out.println(SituacaoReserva.APROVADO);
+                        }
+                    }
+                }
+            }
         }
-        if (!statusLaboratorio.equals(true)) {
-            System.out.println(SituacaoReserva.REPROVADO);
-        } else {
-            System.out.println(SituacaoReserva.APROVADO);
-        }
-        if (!statusDisciplina)
-            System.out.println(SituacaoReserva.REPROVADO);
-        else {
-            System.out.println(SituacaoReserva.APROVADO);
-        }
-        if (!statusProfessor)
-            System.out.println(SituacaoReserva.REPROVADO);
-        else {
-            System.out.println(SituacaoReserva.APROVADO);
-        }
-        if (!statusAlunos) {
-            System.out.println(SituacaoReserva.REPROVADO);
-        } else {
-            System.out.println(SituacaoReserva.APROVADO);
-        }
+
+
+
+
     }
 }

@@ -68,7 +68,7 @@ public class SolicitarLaboratorio {
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
             Integer minutoUser =scan.nextInt();
             encerraPrograma(String.valueOf(minutoUser));
-            validarSolicitacao.validaReserva();
+
             impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, horaUser, minutoUser);
 
         } catch (ParseException p) {
