@@ -29,7 +29,7 @@ public class Impressao extends Reserva {
             solicitacao.setId(id);
             solicitacao.setData(dataUser);
             solicitacao.setTempoDeUtilizacao(minutoUser);
-            // Chamando métodos da própria classe Impressao
+            //Chamando métodos da própria classe Impressao
             configurarProfessor(professores, solicitacao);
             configurarDisciplina(disciplinas, solicitacao);
             configurarLaboratorio(laboratorios, solicitacao);
@@ -73,6 +73,13 @@ public class Impressao extends Reserva {
 
     }
     public void impressaoReserva() {
+        Solicitacao solicitacao=new Solicitacao();
+        List<String> reservas=new ArrayList<>();
+        reservas.add(solicitacao.toString());
+        for (int i = 0; i < reservas.size(); i++) {
+            System.out.println(reservas.get(i));
+        }
+
 
     }
 }
