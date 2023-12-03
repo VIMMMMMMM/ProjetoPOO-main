@@ -1,10 +1,14 @@
 package Requerimentos;
 
+import Base_Dados.Base;
+import Classes_Modelos.Disciplinas;
+import Classes_Modelos.Laboratorios;
 import Execução.Impressao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -46,7 +50,9 @@ public class SolicitarLaboratorio {
 
     private void userInteraction() {
         Impressao impressao = new Impressao();
+        Base base=new Base();
         ValidarSolicitacao validarSolicitacao=new ValidarSolicitacao();
+
 
         try {
             System.out.println("===> Preencha tudo o que se pede a seguir: ");
@@ -68,7 +74,7 @@ public class SolicitarLaboratorio {
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
             Integer minutoUser =scan.nextInt();
             encerraPrograma(String.valueOf(minutoUser));
-
+                validarSolicitacao.validaReserva(dataUser,true,true,true,disciplinaUser,professorUser,true);
             impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, horaUser, minutoUser);
 
         } catch (ParseException p) {
