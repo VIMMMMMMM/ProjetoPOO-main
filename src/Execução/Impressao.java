@@ -29,24 +29,35 @@ public class Impressao extends Reserva {
             solicitacao.setId(id);
             solicitacao.setData(dataUser);
             solicitacao.setTempoDeUtilizacao(minutoUser);
-            Map<Professores, Integer> mapaProfessores = new HashMap<>();
+            Map<String, Integer> mapaProfessores = new HashMap<>();
             Map<String, Integer> mapaDisciplina= new HashMap<>();
             Map<String,Integer> mapaLaboratorio=new HashMap<>();
-
             for (int i = 0; i < professores.size(); i++) {
-                if (professorUser == professores.get(i).getNome()){
-                    solicitacao.setProfessor(professores.get(i));
-                }
+                mapaProfessores.put(professores.get(i).getNome(),0);
+            }
+            for (int i = 0; i < disciplinas.size(); i++) {
+                mapaDisciplina.put(disciplinas.get(i).getSigla(),1);
+            }
+            for (int i = 0; i < laboratorios.size(); i++) {
+                mapaLaboratorio.put(laboratorios.get(i).getDescricao(),2);
             }
 
-
-            mapaDisciplina.put("BES005",1);
+            if (mapaProfessores.containsKey(professorUser)) {
+                solicitacao.setProfessor(professores.get(mapaProfessores.get(professorUser)));
+            }
+            else {
+                System.out.println("erro professor");
+            }
             if (mapaDisciplina.containsKey(disciplinaUser)) {
                 solicitacao.setDisciplina(disciplinas.get(mapaDisciplina.get(disciplinaUser)));
+            }else {
+                System.out.println("erro discplina");
             }
-            mapaLaboratorio.put("LAB8",2);
+
             if (mapaLaboratorio.containsKey(laboratorioUser)) {
                 solicitacao.setLaboratorio(laboratorios.get(mapaLaboratorio.get(laboratorioUser)));
+            }else {
+                System.out.println("erro laboratorio");
             }
 
             switch (laboratorioUser){
