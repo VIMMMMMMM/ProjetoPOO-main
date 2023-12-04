@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 public interface IReservas {
 
-   public Map<?,?> reservasEfetivadas(List<Solicitacao>solicitacaoList);
+   public List<?> reservasEfetivadas(List<Solicitacao>solicitacaoList);
 
 
 

@@ -9,8 +9,6 @@ import Classes_Modelos.*;
 import java.util.*;
 
 public class ValidarSolicitacao {
-    static Base base = new Base();
-
     private boolean validarData(Date diaReserva) {
         Date diaAtual = new Date();
 
@@ -34,7 +32,6 @@ public class ValidarSolicitacao {
         }
         if (mapaProfessores.containsKey(professorUser) && professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId()<10 && (!disciplinaUser.equals("BES005") && !disciplinaUser.equals("BES006") && !disciplinaUser.equals("BES008"))) {
             System.out.println(SituacaoReserva.REPROVADO);
-            System.out.println("primeiro if");
             return false;
         } else if (mapaProfessores.containsKey(professorUser) && (professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId()>=10 && professores.get(mapaProfessores.get(professorUser)).getId()<14) && (!disciplinaUser.equals("BES011") && !disciplinaUser.equals("BES012") && !disciplinaUser.equals("BES020") && !disciplinaUser.equals("BES026"))) {
             System.out.println(SituacaoReserva.REPROVADO);
@@ -72,9 +69,7 @@ public class ValidarSolicitacao {
 
 
         if (validarData(diaReserva)) {
-            System.out.println("data ok");
                 if (validarProfessor(professor, professorUser,disciplinaUser)) {
-                    System.out.println(" professor ok");
                     if (validarDisciplina(disciplina, disciplinaUser)) {
                         System.out.println(SituacaoReserva.APROVADO);
                         return true;

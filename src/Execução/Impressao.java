@@ -16,67 +16,71 @@ public class Impressao  {
      */
     public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Integer minutoUser) {
         try {
-          List<Solicitacao >solicitacaoList=new ArrayList<>();
+            List<Solicitacao> solicitacaoList = new ArrayList<>();
+            Solicitacao solicitacao = new Solicitacao();
             Base base = new Base();
-            ValidarSolicitacao validarSolicitacao =new ValidarSolicitacao();
+            ValidarSolicitacao validarSolicitacao = new ValidarSolicitacao();
             Reserva reserva = new Reserva();
             List<Professores> professores = base.getProfessores();
             List<Disciplinas> disciplinas = base.getDisciplinas();
             List<Laboratorios> laboratorios = base.getLaboratorios();
-            List<Alunos> alunos =  base.getAlunos(1, 65);
-           List<Departamentos>  departamentos =  base.getDepartamentos();
+            List<Alunos> alunos = base.getAlunos(1, 65);
+            List<Departamentos> departamentos = base.getDepartamentos();
 
-            Random random = new Random(1000);
-            Solicitacao solicitacao = new Solicitacao();
+            Random random = new Random();
             int id = random.nextInt(10000);
+
             solicitacao.setId(id);
             solicitacao.setData(dataUser);
             solicitacao.setTempoDeUtilizacao(minutoUser);
             Map<String, Integer> mapaProfessores = new HashMap<>();
-            Map<String, Integer> mapaDisciplina= new HashMap<>();
-            Map<String,Integer> mapaLaboratorio=new HashMap<>();
+            Map<String, Integer> mapaDisciplina = new HashMap<>();
+            Map<String, Integer> mapaLaboratorio = new HashMap<>();
+            Map<Alunos, Integer> mapaAluno= new HashMap<>();
             for (int i = 0; i < professores.size(); i++) {
-                mapaProfessores.put(professores.get(i).getNome(),i);
+                mapaProfessores.put(professores.get(i).getNome(), i);
             }
             for (int i = 0; i < disciplinas.size(); i++) {
-                mapaDisciplina.put(disciplinas.get(i).getSigla(),i);
+                mapaDisciplina.put(disciplinas.get(i).getSigla(), i);
             }
             for (int i = 0; i < laboratorios.size(); i++) {
-                mapaLaboratorio.put(laboratorios.get(i).getDescricao(),i);
+                mapaLaboratorio.put(laboratorios.get(i).getDescricao(), i);
+            }
+            for (int i = 0; i < alunos.size(); i++) {
+                mapaAluno.put(alunos.get(i),i);
             }
 
             if (mapaProfessores.containsKey(professorUser)) {
                 solicitacao.setProfessor(professores.get(mapaProfessores.get(professorUser)));
-            }
-            else {
+            } else {
                 System.out.println("erro professor");
             }
             if (mapaDisciplina.containsKey(disciplinaUser)) {
                 solicitacao.setDisciplina(disciplinas.get(mapaDisciplina.get(disciplinaUser)));
-            }else {
-                System.out.println("erro discplina");
+            } else {
+                System.out.println("erro disciplina");
             }
 
             if (mapaLaboratorio.containsKey(laboratorioUser)) {
                 solicitacao.setLaboratorio(laboratorios.get(mapaLaboratorio.get(laboratorioUser)));
-            }else {
+            } else {
                 System.out.println("erro laboratorio");
             }
 
-            switch (laboratorioUser){
+            switch (laboratorioUser) {
                 case "LAB2", "LAB3", "LAB4", "LAB5", "LAB6", "LAB7":
-                    solicitacao.setAlunos(alunos.subList(0,20));
+                    solicitacao.setAlunos(alunos.subList(0, 20));
                     break;
                 case "LAB8", "LAB9", "LAB11", "LAB12":
-                    solicitacao.setAlunos(alunos.subList(20,35));
+                    solicitacao.setAlunos(alunos.subList(20, 35));
                     break;
                 case "LAB1", "LAB10":
-                    solicitacao.setAlunos(alunos.subList(35,65));
+                    solicitacao.setAlunos(alunos.subList(35, 65));
                     break;
                 default:
                     break;
             }
-            switch (professorUser){
+            switch (professorUser) {
                 case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06", "Professor07", "Professor08", "Professor09", "Professor010":
                     solicitacao.setDepartamentos(departamentos.get(0));
                     break;
@@ -90,21 +94,17 @@ public class Impressao  {
                     break;
             }
             solicitacaoList.add(solicitacao);
-
-
-            validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser);
+            System.out.println(solicitacaoList);
+            System.out.println("--------------------------------------------------------------");
             if (validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser)==true){
                 reserva.reservasEfetivadas(solicitacaoList);
             }
-            System.out.println(solicitacaoList);
+
 
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
 
         }
-    }
-    public void impressaoReservaEfetivada(){
-
     }
 
 }

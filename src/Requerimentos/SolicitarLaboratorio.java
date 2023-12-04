@@ -22,7 +22,7 @@ public class SolicitarLaboratorio {
      * de chamar o metodo imprimir @author Murilo
      */
     static Scanner scan = new Scanner(System.in);
-    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
+    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     public void Usuario() {
         Impressao impressao = new Impressao();
@@ -38,9 +38,6 @@ public class SolicitarLaboratorio {
                     break;
                 case 2:
                     userInteraction();
-                break;
-                case 3:
-                    impressao.impressaoReservaEfetivada();
                 break;
                 default:
                     System.out.println("numero invalido");

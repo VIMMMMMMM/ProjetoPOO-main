@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3b0bbdd9-88da-4524-92fa-2a3ad48023ee" name="Changes" comment="update @Eduardo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Classes_Modelos/IReservas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes_Modelos/IReservas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Classes_Modelos/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Classes_Modelos/Reserva.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Execução/Impressao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Execução/Impressao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Requerimentos/SolicitarLaboratorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Requerimentos/SolicitarLaboratorio.java" afterDir="false" />
@@ -91,7 +92,7 @@
       <workItem from="1701222991578" duration="535000" />
       <workItem from="1701369244711" duration="21278000" />
       <workItem from="1701559184612" duration="11917000" />
-      <workItem from="1701596005858" duration="16479000" />
+      <workItem from="1701596005858" duration="27340000" />
     </task>
     <task id="LOCAL-00001" summary="abc">
       <option name="closed" value="true" />
@@ -216,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701613828491</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update @Eduardo">
+      <created>1701656976897</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701656976897</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,5 +248,15 @@
     <MESSAGE value="update @Eduardo @kaique" />
     <MESSAGE value="update @Eduardo" />
     <option name="LAST_COMMIT_MESSAGE" value="update @Eduardo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
