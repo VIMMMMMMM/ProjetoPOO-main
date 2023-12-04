@@ -6,17 +6,20 @@ import java.util.*;
 
 import Base_Dados.Base;
 import Classes_Modelos.*;
+import Requerimentos.ValidarSolicitacao;
 
-public class Impressao extends Reserva {
+public class Impressao  {
     /**
      * Metodo imprimir que ira chamar todos os metodos da classe Base atraves de uma
      * variavel do tipo List pois o metodo tambem é uma List e mostrar todo o
      * resultado atraves de um forEach @author Murilo
      */
-    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Date horaUser, Integer minutoUser) {
+    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Integer minutoUser) {
         try {
           List<Solicitacao >solicitacaoList=new ArrayList<>();
             Base base = new Base();
+            ValidarSolicitacao validarSolicitacao =new ValidarSolicitacao();
+            Reserva reserva = new Reserva();
             List<Professores> professores = base.getProfessores();
             List<Disciplinas> disciplinas = base.getDisciplinas();
             List<Laboratorios> laboratorios = base.getLaboratorios();
@@ -88,21 +91,21 @@ public class Impressao extends Reserva {
             }
             solicitacaoList.add(solicitacao);
 
+
+            validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser);
+            if (validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser)==true){
+                reserva.reservasEfetivadas(solicitacaoList);
+            }
             System.out.println(solicitacaoList);
+
         } catch (Exception e) {
            e.printStackTrace();
+
         }
     }
-
-    public void impressaoReserva() {
-        Solicitacao solicitacao=new Solicitacao();
-        List<String> reservas=new ArrayList<>();
-        reservas.add(solicitacao.toString());
-        for (int i = 0; i < reservas.size(); i++) {
-            System.out.println(reservas.get(i));
-        }
-
+    public void impressaoReservaEfetivada(){
 
     }
+
 }
 

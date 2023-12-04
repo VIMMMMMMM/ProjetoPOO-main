@@ -5,11 +5,12 @@ Interface que ira ser implementada na classe reserva @author Eduardo @author Kai
  */
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 
 public interface IReservas {
 
-   public List<Reserva>reservasEfetivadas();
+   public Map<?,?> reservasEfetivadas(List<Solicitacao>solicitacaoList);
 
 
 

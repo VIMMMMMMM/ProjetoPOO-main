@@ -3,6 +3,8 @@ package Requerimentos;
 import Base_Dados.Base;
 import Classes_Modelos.Disciplinas;
 import Classes_Modelos.Laboratorios;
+import Classes_Modelos.Professores;
+import Classes_Modelos.Reserva;
 import Execução.Impressao;
 
 import java.text.ParseException;
@@ -20,8 +22,7 @@ public class SolicitarLaboratorio {
      * de chamar o metodo imprimir @author Murilo
      */
     static Scanner scan = new Scanner(System.in);
-    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    static SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("HH:mm");
+    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm:ss");
 
     public void Usuario() {
         Impressao impressao = new Impressao();
@@ -39,7 +40,7 @@ public class SolicitarLaboratorio {
                     userInteraction();
                 break;
                 case 3:
-                    impressao.impressaoReserva();
+                    impressao.impressaoReservaEfetivada();
                 break;
                 default:
                     System.out.println("numero invalido");
@@ -50,7 +51,9 @@ public class SolicitarLaboratorio {
 
     private void userInteraction() {
         Impressao impressao = new Impressao();
-        Base base=new Base();
+        Base base = new Base();
+        List<Professores> professores = base.getProfessores();
+        List<Disciplinas> disciplinas = base.getDisciplinas();
         ValidarSolicitacao validarSolicitacao=new ValidarSolicitacao();
 
 
@@ -65,23 +68,21 @@ public class SolicitarLaboratorio {
             System.out.print("Informe a sigla da disciplina: ");
             String disciplinaUser = scan.next();
             encerraPrograma(disciplinaUser);
-            System.out.print("Informe a data dd/mm/yyyy inicial de uso do laboratorio? ");
+            System.out.print("Informe a data dd/mm/yyyy e inicial a hora HH:mm:ss inicial de uso do laboratorio? ");
             Date dataUser = simpleDateFormat.parse(scan.next());
             encerraPrograma(String.valueOf(dataUser));
-            System.out.print("Informe a hora HH:mm inicial de uso do laboratorio? ");
-            Date horaUser = simpleDateFormat1.parse(scan.next());
-            encerraPrograma(String.valueOf(horaUser));
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
             Integer minutoUser =scan.nextInt();
             encerraPrograma(String.valueOf(minutoUser));
-                validarSolicitacao.validaReserva(dataUser,true,true,true,disciplinaUser,professorUser,true);
-            impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, horaUser, minutoUser);
+            validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser);
+            impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, minutoUser);
 
         } catch (ParseException p) {
             System.out.println("erro parse " + p.getMessage());
         }
 
     }
+
 
     /**
      * Metodo para a verificação do que o usuario digitou, se o usuario digitar 1 a

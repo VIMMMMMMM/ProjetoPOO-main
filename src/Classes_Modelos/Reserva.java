@@ -4,12 +4,11 @@ package Classes_Modelos;
 
 import Requerimentos.SolicitarLaboratorio;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-public abstract class Reserva implements IReservas{
+public  class Reserva implements IReservas {
 	private Integer id;
+
 	public Integer getId() {
 		return id;
 	}
@@ -18,10 +17,15 @@ public abstract class Reserva implements IReservas{
 		this.id = id;
 	}
 
-	public List<Reserva> reservasEfetivadas() {
-		List<Solicitacao> solicitacoes= new ArrayList<>();
-
-		return null;
+	public Map<?,?> reservasEfetivadas(List<Solicitacao>solicitacaoList) {
+		Map<List<Solicitacao>, Integer> map= new HashMap<>();
+		for (int i = 0; i < solicitacaoList.size(); i++) {
+			map.put(solicitacaoList,i);
+		}
+	imprirReservaEfetivada(map);
+		return map;
 	}
-	public abstract void impressaoReserva();
+	public void imprirReservaEfetivada(Map<?,?>map){
+		System.out.println(map);
+	}
 }

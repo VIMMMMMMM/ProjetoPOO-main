@@ -22,45 +22,37 @@ public class ValidarSolicitacao {
         }
     }
 
-    private boolean validarLaboratorio (List<Laboratorios> laboratorios, String laboratorioUser) {
-        Map<String, Integer> mapaLaboratorio = new HashMap<>();
-        
-         for (int i = 0; i < laboratorios.size(); i++) {
-            mapaLaboratorio.put(laboratorios.get(i).getDescricao(), i);
-        }
-
-        if (!mapaLaboratorio.containsKey(laboratorioUser)) {
-           System.out.println(SituacaoReserva.REPROVADO);
-           return false;
-        }else {
-            return true;
-        }
-        
-    }
-        
 
     private boolean validarProfessor(List<Professores> professores, String professorUser, String disciplinaUser) {
-         Map<String, Integer> mapaProfessores = new HashMap<>();
-
+        Map<String, Integer> mapaProfessores = new HashMap<>();
+        Map<Integer, Integer> mapaProfessores1 = new HashMap<>();
         for (int i = 0; i < professores.size(); i++) {
             mapaProfessores.put(professores.get(i).getNome(), i);
         }
-        
-        if (!mapaProfessores.containsKey(professorUser)) {
+        for (int i = 0; i < professores.size(); i++) {
+            mapaProfessores1.put(professores.get(i).getId(), i);
+        }
+        if (mapaProfessores.containsKey(professorUser) && professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId()<10 && (!disciplinaUser.equals("BES005") && !disciplinaUser.equals("BES006") && !disciplinaUser.equals("BES008"))) {
+            System.out.println(SituacaoReserva.REPROVADO);
+            System.out.println("primeiro if");
+            return false;
+        } else if (mapaProfessores.containsKey(professorUser) && (professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId()>=10 && professores.get(mapaProfessores.get(professorUser)).getId()<14) && (!disciplinaUser.equals("BES011") && !disciplinaUser.equals("BES012") && !disciplinaUser.equals("BES020") && !disciplinaUser.equals("BES026"))) {
             System.out.println(SituacaoReserva.REPROVADO);
             return false;
+        } else  if (mapaProfessores.containsKey(professorUser) && professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId()==14 && (!disciplinaUser.equals("BES038") && !disciplinaUser.equals("BES049") && !disciplinaUser.equals("BES048"))) {
+            System.out.println(SituacaoReserva.REPROVADO);
+            return false;
+        } else {
+            return true;
         }
-        else {
-            if (mapaProfessores.(professorUser) && disciplinaUser != "BES005" || disciplinaUser != "BES006" || disciplinaUser != "BES008") {
-                
-                System.out.println(SituacaoReserva.REPROVADO);
-                return false;
-            } else {
-                return true;
-            }
+    }
 
-    }
-    }
+
+
+
+
+
+
 
     private boolean validarDisciplina(List<Disciplinas> disciplinas, String disciplinaUser) {
         Map<String, Integer> mapaDisciplina = new HashMap<>();
@@ -75,48 +67,23 @@ public class ValidarSolicitacao {
         }
     }
 
-    public void validaReserva(Date diaReserva, List<Laboratorios> laboratorio, List<Disciplinas> disciplina,
-            List<Professores> professor, String disciplinaUser, String professorUser, List<Alunos> aluno) {
-        Date diaUser = new Date();
+    public boolean validaReserva(Date diaReserva, List<Disciplinas> disciplina,
+            List<Professores> professor, String disciplinaUser, String professorUser) {
+
 
         if (validarData(diaReserva)) {
-            if (validarLaboratorio(laboratorio, professorUser)) {
-                if (validarProfessor(professor, professorUser)) {
+            System.out.println("data ok");
+                if (validarProfessor(professor, professorUser,disciplinaUser)) {
+                    System.out.println(" professor ok");
                     if (validarDisciplina(disciplina, disciplinaUser)) {
                         System.out.println(SituacaoReserva.APROVADO);
+                        return true;
                     }
                 }
             }
-        }
-        
-        switch (professorUser) {
-            case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06",
-                    "Professor07", "Professor08", "Professor09", "Professor010" -> {
-                if (disciplinaUser != "BES005" || disciplinaUser != "BES006" || disciplinaUser != "BES008") {
-                    System.out.println(SituacaoReserva.REPROVADO);
-                } else {
-                    System.out.println(SituacaoReserva.APROVADO);
-                }
-            }
-            case "Professor011", "Professor012", "Professor013", "Professor014" -> {
-                if (disciplinaUser != "BES011" || disciplinaUser != "BES012" || disciplinaUser != "BES020"
-                        || disciplinaUser != "BES026") {
-                    System.out.println(SituacaoReserva.REPROVADO);
-                } else {
-                    System.out.println(SituacaoReserva.APROVADO);
-                }
-            }
-            case "Professor015" -> {
-                if (disciplinaUser != "BES038" || disciplinaUser != "BES049" || disciplinaUser != "BES048") {
-                    System.out.println(SituacaoReserva.REPROVADO);
-                } else {
-                    System.out.println(SituacaoReserva.APROVADO);
 
-                }
 
-            }
-        }
-
+        return false;
     }
 
 }
