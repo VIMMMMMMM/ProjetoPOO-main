@@ -86,7 +86,14 @@ public class Base implements IBase {
         return listaDepartamentos;
     }
 
-    /** @author Caio */
+    /**
+    * Retorna uma lista de objetos Professores com informações predefinidas.
+    * Este método gera uma lista de professores com base em um conjunto predefinido
+    * de nomes, atribuindo identificação, departamento, status e disciplinas para cada professor.
+    * return Uma lista de objetos Professores preenchida com dados.
+    * Em caso de exceção, pode retornar null. @author Caio
+    */
+
     @Override
     public List<Professores> getProfessores() {
         List<Professores> listaProfessores = new ArrayList<>();
@@ -97,7 +104,8 @@ public class Base implements IBase {
                 professor.setNome("Professor0" + i);
 
                 switch (professor.getNome()) {
-                    case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06", "Professor07", "Professor08", "Professor09", "Professor010" -> {
+                    case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06",
+                            "Professor07", "Professor08", "Professor09", "Professor010" -> {
                         professor.setId(i);
                         professor.setDepartamento(getDepartamentos().get(0));
                         professor.setStatus(true);
@@ -218,12 +226,22 @@ public class Base implements IBase {
         return listaDisciplinas;
     }
 
-    /**Implementação do método da interface iBase do tipo List<Alunos> que recebe como parâmetro numeros para localização de index's.
-     * Primeiro é criado uma lista chamada conjuntoAlunos e depois é adicionado todos os elementos do conjunto hashset que faz parte
-     * do métoodo criarAlunos, passando como parâmetro o numero de inicio e da quantidade de alunos da sua preferência.
-     * Ao final de tudo é realizado um retorno da lista de conjuntoAlunos, usando a função sublist que permite com que seja possivel setar o index inicial e o index final.
-     * É realizado uma subtração de inicio-inicio, pois o primeiro aluno faz parte do index 0 da lista e quando coloca no parâmetro de inicio
-     * ele imprime o aluno 1, se colocar 2 imprime aluno 2 e assim sucessivamente (foi utilizado try e catch para tratamento de erros) @author Caio @author Murilo*/
+    /**
+     * Implementação do método da interface iBase do tipo List<Alunos> que recebe
+     * como parâmetro numeros para localização de index's.
+     * Primeiro é criado uma lista chamada conjuntoAlunos e depois é adicionado
+     * todos os elementos do conjunto hashset que faz parte
+     * do métoodo criarAlunos, passando como parâmetro o numero de inicio e da
+     * quantidade de alunos da sua preferência.
+     * Ao final de tudo é realizado um retorno da lista de conjuntoAlunos, usando a
+     * função sublist que permite com que seja possivel setar o index inicial e o
+     * index final.
+     * É realizado uma subtração de inicio-inicio, pois o primeiro aluno faz parte
+     * do index 0 da lista e quando coloca no parâmetro de inicio
+     * ele imprime o aluno 1, se colocar 2 imprime aluno 2 e assim sucessivamente
+     * (foi utilizado try e catch para tratamento de erros) @author Caio @author
+     * Murilo
+     */
 
     public List<Alunos> getAlunos(int inicio, int qtden) {
 
@@ -241,12 +259,20 @@ public class Base implements IBase {
         return conjuntoAlunos.subList(inicio - inicio, qtden);
     }
 
-
-    /**Implementação do método criarAlunos, que tem como principal objetivo criar alunos e setar em um conjunto.
-     * Primeiro inicia-se um conjunto HashSet e depois restringe o código utilizando uma estrutura de condição, onde o valor inicial tem que ser obrigatoriamente 1 para os alunos
-     * serem criados, além disso a quantidade de alunos tem que ser maior do que 0. Com a ajuda do for, é possivel setar as caracteristicas de cada aluno e adicionar no conjunto Alunos.
-     * Caso o usuário coloque um valor que não está de acordo com as condições, será impresso na tela que o numero escolhido é invalido.
-     * No final de tudo retorna um conjunto Set e é utilizado try e catch para tratamentos de erros @author Caio */
+    /**
+     * Implementação do método criarAlunos, que tem como principal objetivo criar
+     * alunos e setar em um conjunto.
+     * Primeiro inicia-se um conjunto HashSet e depois restringe o código utilizando
+     * uma estrutura de condição, onde o valor inicial tem que ser obrigatoriamente
+     * 1 para os alunos
+     * serem criados, além disso a quantidade de alunos tem que ser maior do que 0.
+     * Com a ajuda do for, é possivel setar as caracteristicas de cada aluno e
+     * adicionar no conjunto Alunos.
+     * Caso o usuário coloque um valor que não está de acordo com as condições, será
+     * impresso na tela que o numero escolhido é invalido.
+     * No final de tudo retorna um conjunto Set e é utilizado try e catch para
+     * tratamentos de erros @author Caio
+     */
 
     private Set<Alunos> criarAlunos(int inicio, int qtden) {
         Set<Alunos> alunos = new HashSet<>();

@@ -17,7 +17,7 @@ import static java.lang.System.exit;
 
 public class SolicitarLaboratorio {
     /**
-     * Metodo Usuario que serve para guarda toda a interação do usuario com o
+     * Metodo Usuario que serve para guardar toda a interação do usuario com o
      * sistema dentro de variaveis que ira interagir totalmente com o sistema alem
      * de chamar o metodo imprimir @author Murilo
      */
@@ -34,25 +34,34 @@ public class SolicitarLaboratorio {
             System.out.println("digite 3 caso deseja ver laboratorios reservados");
             i = scan.nextInt();
             switch (i) {
-                case 1 :
+                case 1:
                     break;
                 case 2:
                     userInteraction();
-                break;
+                    break;
                 default:
                     System.out.println("numero invalido");
-                break;
+                    break;
             }
         }
     }
+
+    /**
+     * Método responsável por interagir com o usuário para realizar a solicitação de
+     * reserva de laboratório.
+     * Ele solicita informações como laboratório desejado, nome do professor, sigla
+     * da disciplina, data e hora de início,
+     * e a quantidade de minutos desejados para a reserva. Realiza validações e, se
+     * tudo estiver correto,
+     * imprime a solicitação de reserva utilizando a classe Impressao. @author Kaique & @author Eduardo
+     */
 
     private void userInteraction() {
         Impressao impressao = new Impressao();
         Base base = new Base();
         List<Professores> professores = base.getProfessores();
         List<Disciplinas> disciplinas = base.getDisciplinas();
-        ValidarSolicitacao validarSolicitacao=new ValidarSolicitacao();
-
+        ValidarSolicitacao validarSolicitacao = new ValidarSolicitacao();
 
         try {
             System.out.println("===> Preencha tudo o que se pede a seguir: ");
@@ -69,9 +78,9 @@ public class SolicitarLaboratorio {
             Date dataUser = simpleDateFormat.parse(scan.next());
             encerraPrograma(String.valueOf(dataUser));
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
-            Integer minutoUser =scan.nextInt();
+            Integer minutoUser = scan.nextInt();
             encerraPrograma(String.valueOf(minutoUser));
-            validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser);
+            validarSolicitacao.validaReserva(dataUser, disciplinas, professores, disciplinaUser, professorUser);
             impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, minutoUser);
 
         } catch (ParseException p) {
@@ -79,7 +88,6 @@ public class SolicitarLaboratorio {
         }
 
     }
-
 
     /**
      * Metodo para a verificação do que o usuario digitou, se o usuario digitar 1 a
@@ -91,7 +99,5 @@ public class SolicitarLaboratorio {
             exit(0);
         }
     }
-
-
 
 }

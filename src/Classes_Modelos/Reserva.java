@@ -1,4 +1,4 @@
-/**Classe Reserva que implementa a interface IReservas @author Eduardo @author Kaique @author Gustavo */
+/**Classe Reserva que implementa a interface IReservas @author Eduardo @author Kaique */
 
 package Classes_Modelos;
 
@@ -7,7 +7,7 @@ import Requerimentos.SolicitarLaboratorio;
 
 import java.util.*;
 
-public  class Reserva implements IReservas {
+public class Reserva implements IReservas {
 	private int id;
 	private Integer solicitacao;
 	private Date diaReserva;
@@ -52,7 +52,7 @@ public  class Reserva implements IReservas {
 		return professores;
 	}
 
-	public void setProfessores(String  professores) {
+	public void setProfessores(String professores) {
 		this.professores = professores;
 	}
 
@@ -72,12 +72,18 @@ public  class Reserva implements IReservas {
 		this.diaLiberacao = diaLiberacao;
 	}
 
-	public List<?> reservasEfetivadas(List<Solicitacao>solicitacaoList) {
+	/**
+	 * Este método cria uma lista de reservas efetivadas a partir de uma lista de solicitações.
+	 * List<Solicitacao> solicitacaoList Uma lista de objetos Solicitacao que representam as solicitações de reserva.
+	 * return Uma lista de objetos Reserva que representam as reservas efetivadas. @author Eduardo @author Kaique
+	 */
+
+	public List<?> reservasEfetivadas(List<Solicitacao> solicitacaoList) {
 		Random random = new Random();
 		Date date = new Date();
 		Reserva reserva = new Reserva();
-		int reservaR= random.nextInt(1000);
-		List<Reserva> reservaList= new ArrayList<>();
+		int reservaR = random.nextInt(1000);
+		List<Reserva> reservaList = new ArrayList<>();
 		reserva.setId(reservaR);
 		reserva.setSolicitacao(solicitacaoList.get(0).getId());
 		reserva.setDiaReserva(solicitacaoList.get(0).getData());
@@ -95,7 +101,7 @@ public  class Reserva implements IReservas {
 		return "Reserva{" +
 				"id=" + id +
 				", solicitacao=" + solicitacao +
-				", situacao="	+SituacaoReserva.APROVADO+
+				", situacao=" + SituacaoReserva.APROVADO +
 				",\n diaReserva=" + diaReserva +
 				",\n duracao=" + duracao +
 				",\n professores=" + professores +

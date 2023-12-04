@@ -8,13 +8,22 @@ import Base_Dados.Base;
 import Classes_Modelos.*;
 import Requerimentos.ValidarSolicitacao;
 
-public class Impressao  {
-    /**
-     * Metodo imprimir que ira chamar todos os metodos da classe Base atraves de uma
-     * variavel do tipo List pois o metodo tambem é uma List e mostrar todo o
-     * resultado atraves de um forEach @author Murilo
-     */
-    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser, Integer minutoUser) {
+public class Impressao {
+   
+/**
+ * Imprime uma solicitação de reserva para laboratório com base nos parâmetros fornecidos.
+ * Este método gera uma solicitação de reserva para laboratório, considerando informações como o professor,
+ * disciplina, laboratório, data, tempo de utilização e alunos envolvidos. Também realiza validações
+ * através da classe ValidarSolicitacao e, se a reserva for válida, a efetiva utilizando a classe Reserva
+ * String laboratorioUser O nome do laboratório desejado para a reserva.
+ * String professorUser O nome do professor responsável pela reserva.
+ * String disciplinaUser A sigla da disciplina associada à reserva.
+ * Date dataUser A data para a qual a reserva é solicitada.
+ * Integer minutoUser O tempo de utilização do laboratório em minutos. @author Kaique & @author Eduardo & @author Murilo
+ */
+
+    public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser,
+            Integer minutoUser) {
         try {
             List<Solicitacao> solicitacaoList = new ArrayList<>();
             Solicitacao solicitacao = new Solicitacao();
@@ -36,7 +45,7 @@ public class Impressao  {
             Map<String, Integer> mapaProfessores = new HashMap<>();
             Map<String, Integer> mapaDisciplina = new HashMap<>();
             Map<String, Integer> mapaLaboratorio = new HashMap<>();
-            Map<Alunos, Integer> mapaAluno= new HashMap<>();
+            Map<Alunos, Integer> mapaAluno = new HashMap<>();
             for (int i = 0; i < professores.size(); i++) {
                 mapaProfessores.put(professores.get(i).getNome(), i);
             }
@@ -47,7 +56,7 @@ public class Impressao  {
                 mapaLaboratorio.put(laboratorios.get(i).getDescricao(), i);
             }
             for (int i = 0; i < alunos.size(); i++) {
-                mapaAluno.put(alunos.get(i),i);
+                mapaAluno.put(alunos.get(i), i);
             }
 
             if (mapaProfessores.containsKey(professorUser)) {
@@ -81,7 +90,8 @@ public class Impressao  {
                     break;
             }
             switch (professorUser) {
-                case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06", "Professor07", "Professor08", "Professor09", "Professor010":
+                case "Professor01", "Professor02", "Professor03", "Professor04", "Professor05", "Professor06",
+                        "Professor07", "Professor08", "Professor09", "Professor010":
                     solicitacao.setDepartamentos(departamentos.get(0));
                     break;
                 case "Professor011", "Professor012", "Professor013", "Professor014":
@@ -96,10 +106,10 @@ public class Impressao  {
             solicitacaoList.add(solicitacao);
             System.out.println(solicitacaoList);
             System.out.println("--------------------------------------------------------------");
-            if (validarSolicitacao.validaReserva(dataUser,disciplinas,professores,disciplinaUser,professorUser)==true){
+            if (validarSolicitacao.validaReserva(dataUser, disciplinas, professores, disciplinaUser,
+                    professorUser) == true) {
                 reserva.reservasEfetivadas(solicitacaoList);
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,4 +118,3 @@ public class Impressao  {
     }
 
 }
-
