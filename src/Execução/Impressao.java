@@ -8,7 +8,7 @@ import Base_Dados.Base;
 import Classes_Modelos.*;
 import Requerimentos.ValidarSolicitacao;
 
-public class Impressao {
+public abstract class Impressao {
 
     /**
      * Imprime uma solicitação de reserva para laboratório com base nos parâmetros
@@ -121,5 +121,7 @@ public class Impressao {
 
         }
     }
+
+    public abstract void encerraPrograma(String respostaUsuario);
 
 }

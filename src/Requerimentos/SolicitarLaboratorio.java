@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
-public class SolicitarLaboratorio {
+public class SolicitarLaboratorio extends Impressao{
     /**
      * Metodo Usuario que serve para guardar toda a interação do usuario com o
      * sistema dentro de variaveis que ira interagir totalmente com o sistema alem
@@ -54,7 +54,6 @@ public class SolicitarLaboratorio {
      */
 
     private void userInteraction() {
-        Impressao impressao = new Impressao();
         Base base = new Base();
         List<Professores> professores = base.getProfessores();
         List<Disciplinas> disciplinas = base.getDisciplinas();
@@ -80,7 +79,7 @@ public class SolicitarLaboratorio {
             encerraPrograma(String.valueOf(minutoUser));
             System.out.println("");
             validarSolicitacao.validaReserva(dataUser, disciplinas, professores, disciplinaUser, professorUser);
-            impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, minutoUser);
+            Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, minutoUser);
 
         } catch (ParseException p) {
             System.out.println("erro parse " + p.getMessage());
@@ -92,7 +91,7 @@ public class SolicitarLaboratorio {
      * Metodo para a verificação do que o usuario digitou, se o usuario digitar 1 a
      * qualquer momento o programa ira encerrar. @author Murilo
      */
-    private void encerraPrograma(String respostaUsuario) {
+    public void encerraPrograma(String respostaUsuario) {
         if ("1".equals(respostaUsuario)) {
             System.out.println("Programa encerrado");
             exit(0);
