@@ -2,9 +2,6 @@
 
 package Classes_Modelos;
 
-import Execução.Impressao;
-import Requerimentos.SolicitarLaboratorio;
-
 import java.util.*;
 
 public class Reserva implements IReservas {
@@ -73,9 +70,12 @@ public class Reserva implements IReservas {
 	}
 
 	/**
-	 * Este método cria uma lista de reservas efetivadas a partir de uma lista de solicitações.
-	 * List<Solicitacao> solicitacaoList Uma lista de objetos Solicitacao que representam as solicitações de reserva.
-	 * return Uma lista de objetos Reserva que representam as reservas efetivadas. @author Eduardo @author Kaique
+	 * Este método cria uma lista de reservas efetivadas a partir de uma lista de
+	 * solicitações.
+	 * List<Solicitacao> solicitacaoList Uma lista de objetos Solicitacao que
+	 * representam as solicitações de reserva.
+	 * return Uma lista de objetos Reserva que representam as reservas
+	 * efetivadas. @author Eduardo @author Kaique
 	 */
 
 	public List<?> reservasEfetivadas(List<Solicitacao> solicitacaoList) {

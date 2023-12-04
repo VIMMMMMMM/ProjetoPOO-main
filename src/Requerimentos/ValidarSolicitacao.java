@@ -1,16 +1,11 @@
 package Requerimentos;
-/*
-classe que valida solicitacao do Laboratorio @author Eduardo & @author Kaique
- */
 
-import Base_Dados.Base;
 import Classes_Modelos.*;
-
 import java.util.*;
 
 /**
- * Classe ValidarSolicitacao para validar uma reserva. @author Kaique & @author Eduardo
- *
+ * Classe ValidarSolicitacao para validar uma reserva. @author Kaique & @author
+ * Eduardo
  */
 
 public class ValidarSolicitacao {
@@ -46,34 +41,33 @@ public class ValidarSolicitacao {
     private boolean validarProfessor(List<Professores> professores, String professorUser, String disciplinaUser) {
         Map<String, Integer> mapaProfessores = new HashMap<>();
         Map<Integer, Integer> mapaProfessores1 = new HashMap<>();
+
         for (int i = 0; i < professores.size(); i++) {
             mapaProfessores.put(professores.get(i).getNome(), i);
-        }
-        for (int i = 0; i < professores.size(); i++) {
             mapaProfessores1.put(professores.get(i).getId(), i);
         }
-        if (mapaProfessores.containsKey(professorUser)
-                && professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId() < 10
-                && (!disciplinaUser.equals("BES005") && !disciplinaUser.equals("BES006")
-                        && !disciplinaUser.equals("BES008"))) {
-            System.out.println(SituacaoReserva.REPROVADO);
-            return false;
-        } else if (mapaProfessores.containsKey(professorUser)
-                && (professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId() >= 10
-                        && professores.get(mapaProfessores.get(professorUser)).getId() < 14)
-                && (!disciplinaUser.equals("BES011") && !disciplinaUser.equals("BES012")
-                        && !disciplinaUser.equals("BES020") && !disciplinaUser.equals("BES026"))) {
-            System.out.println(SituacaoReserva.REPROVADO);
-            return false;
-        } else if (mapaProfessores.containsKey(professorUser)
-                && professores.get(mapaProfessores1.get(mapaProfessores.get(professorUser))).getId() == 14
-                && (!disciplinaUser.equals("BES038") && !disciplinaUser.equals("BES049")
-                        && !disciplinaUser.equals("BES048"))) {
-            System.out.println(SituacaoReserva.REPROVADO);
-            return false;
-        } else {
-            return true;
+
+        if (mapaProfessores.containsKey(professorUser)) {
+            Integer professorId = professores.get(mapaProfessores.get(professorUser)).getId();
+
+            if (professorId < 10 && (!disciplinaUser.equals("BES005") && !disciplinaUser.equals("BES006")
+                    && !disciplinaUser.equals("BES008"))) {
+                System.out.println(SituacaoReserva.REPROVADO);
+                
+                return false;
+            } else if (professorId >= 10 && professorId < 14
+                    && (!disciplinaUser.equals("BES011") && !disciplinaUser.equals("BES012")
+                            && !disciplinaUser.equals("BES020") && !disciplinaUser.equals("BES026"))) {
+                System.out.println(SituacaoReserva.REPROVADO);
+                return false;
+            } else if (professorId == 14 && (!disciplinaUser.equals("BES038") && !disciplinaUser.equals("BES049")
+                    && !disciplinaUser.equals("BES048"))) {
+                System.out.println(SituacaoReserva.REPROVADO);
+                return false;
+            }
         }
+
+        return true;
     }
 
     /**
@@ -81,7 +75,8 @@ public class ValidarSolicitacao {
      *
      * List<Disciplinas> disciplinas Lista de disciplinas disponíveis.
      * String disciplinaUser Sigla da disciplina fornecida pelo usuário.
-     * return true se a disciplina for válida, false se for inválida. @author Kaique & @author Eduardo
+     * return true se a disciplina for válida, false se for inválida. @author Kaique
+     * & @author Eduardo
      */
 
     private boolean validarDisciplina(List<Disciplinas> disciplinas, String disciplinaUser) {
@@ -106,7 +101,8 @@ public class ValidarSolicitacao {
      * String disciplinaUser Sigla da disciplina fornecida pelo usuário.
      * String professorUser Nome do professor fornecido pelo usuário.
      * return code true se a solicitação for aprovada,false se for reprovada.
-     * Imprime na tela o Enum aprovado caso for aprovado. @author Kaique & @author Eduardo
+     * Imprime na tela o Enum aprovado caso for aprovado. @author Kaique & @author
+     * Eduardo
      */
 
     public boolean validaReserva(Date diaReserva, List<Disciplinas> disciplina,
@@ -120,7 +116,6 @@ public class ValidarSolicitacao {
                 }
             }
         }
-
         return false;
     }
 

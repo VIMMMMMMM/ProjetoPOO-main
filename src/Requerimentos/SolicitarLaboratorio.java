@@ -2,9 +2,7 @@ package Requerimentos;
 
 import Base_Dados.Base;
 import Classes_Modelos.Disciplinas;
-import Classes_Modelos.Laboratorios;
 import Classes_Modelos.Professores;
-import Classes_Modelos.Reserva;
 import Execução.Impressao;
 
 import java.text.ParseException;
@@ -22,16 +20,14 @@ public class SolicitarLaboratorio {
      * de chamar o metodo imprimir @author Murilo
      */
     static Scanner scan = new Scanner(System.in);
-    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     public void Usuario() {
-        Impressao impressao = new Impressao();
         int i = 0;
         while (i != 1) {
-            System.out.println("<<< SOLICITAÇÃO DE RESERVA >>>");
-            System.out.println("Digite 1 caso deseja sair do programa.\n ");
-            System.out.println("Digite 2 caso deseja reservar laboratorio\n");
-            System.out.println("digite 3 caso deseja ver laboratorios reservados");
+            System.out.println("\n<<< SOLICITAÇÃO DE RESERVA >>>");
+            System.out.println("1- caso deseja sair do programa.");
+            System.out.println("2- caso deseja reservar laboratorio\n");
             i = scan.nextInt();
             switch (i) {
                 case 1:
@@ -53,7 +49,8 @@ public class SolicitarLaboratorio {
      * da disciplina, data e hora de início,
      * e a quantidade de minutos desejados para a reserva. Realiza validações e, se
      * tudo estiver correto,
-     * imprime a solicitação de reserva utilizando a classe Impressao. @author Kaique & @author Eduardo
+     * imprime a solicitação de reserva utilizando a classe Impressao. @author
+     * Kaique & @author Eduardo @author Murilo
      */
 
     private void userInteraction() {
@@ -74,12 +71,14 @@ public class SolicitarLaboratorio {
             System.out.print("Informe a sigla da disciplina: ");
             String disciplinaUser = scan.next();
             encerraPrograma(disciplinaUser);
+            scan.nextLine();
             System.out.print("Informe a data dd/mm/yyyy e inicial a hora HH:mm:ss inicial de uso do laboratorio? ");
-            Date dataUser = simpleDateFormat.parse(scan.next());
+            Date dataUser = simpleDateFormat.parse(scan.nextLine());
             encerraPrograma(String.valueOf(dataUser));
             System.out.print("Informe os minutos que deseja usar o laboratorio? ");
             Integer minutoUser = scan.nextInt();
             encerraPrograma(String.valueOf(minutoUser));
+            System.out.println("");
             validarSolicitacao.validaReserva(dataUser, disciplinas, professores, disciplinaUser, professorUser);
             impressao.Imprimir(laboratorioUser, professorUser, disciplinaUser, dataUser, minutoUser);
 

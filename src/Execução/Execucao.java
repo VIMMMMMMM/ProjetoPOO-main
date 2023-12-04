@@ -2,19 +2,13 @@
 
 package Execução;
 
-import Base_Dados.Base;
 import Requerimentos.SolicitarLaboratorio;
-
-import java.text.ParseException;
 
 public class Execucao {
 
-	public static void main(String[] args)  {
+	/** Metodo main que ira chamar a classe solicitar laboratorio @author Eduardo */
+	public static void main(String[] args) {
 		SolicitarLaboratorio solicitarLaboratorio = new SolicitarLaboratorio();
 		solicitarLaboratorio.Usuario();
-
-
-
-
 	}
 }

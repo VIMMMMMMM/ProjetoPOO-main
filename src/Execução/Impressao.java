@@ -9,18 +9,23 @@ import Classes_Modelos.*;
 import Requerimentos.ValidarSolicitacao;
 
 public class Impressao {
-   
-/**
- * Imprime uma solicitação de reserva para laboratório com base nos parâmetros fornecidos.
- * Este método gera uma solicitação de reserva para laboratório, considerando informações como o professor,
- * disciplina, laboratório, data, tempo de utilização e alunos envolvidos. Também realiza validações
- * através da classe ValidarSolicitacao e, se a reserva for válida, a efetiva utilizando a classe Reserva
- * String laboratorioUser O nome do laboratório desejado para a reserva.
- * String professorUser O nome do professor responsável pela reserva.
- * String disciplinaUser A sigla da disciplina associada à reserva.
- * Date dataUser A data para a qual a reserva é solicitada.
- * Integer minutoUser O tempo de utilização do laboratório em minutos. @author Kaique & @author Eduardo & @author Murilo
- */
+
+    /**
+     * Imprime uma solicitação de reserva para laboratório com base nos parâmetros
+     * fornecidos.
+     * Este método gera uma solicitação de reserva para laboratório, considerando
+     * informações como o professor,
+     * disciplina, laboratório, data, tempo de utilização e alunos envolvidos.
+     * Também realiza validações
+     * através da classe ValidarSolicitacao e, se a reserva for válida, a efetiva
+     * utilizando a classe Reserva
+     * String laboratorioUser O nome do laboratório desejado para a reserva.
+     * String professorUser O nome do professor responsável pela reserva.
+     * String disciplinaUser A sigla da disciplina associada à reserva.
+     * Date dataUser A data para a qual a reserva é solicitada.
+     * Integer minutoUser O tempo de utilização do laboratório em minutos. @author
+     * Kaique & @author Eduardo
+     */
 
     public void Imprimir(String laboratorioUser, String professorUser, String disciplinaUser, Date dataUser,
             Integer minutoUser) {
